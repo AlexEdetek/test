@@ -1,0 +1,40 @@
+{
+  "text": "Astellas",
+  "icon": "icons/tree.png",
+  "children": [
+    {
+      "text": "CDISC",
+      "children": [
+        {
+          "text": "SDTM",
+          "children": [
+            {
+              "text": "SDTM 3.1.1",
+              "icon": "icons/file.png"
+            },
+            {
+              "text": "SDTM 3.1.3",
+              "icon": "icons/file.png"
+            },
+            {
+              "text": "SDTM 3.2",
+              "icon": "icons/file.png"
+            }
+          ]
+        },
+        {
+          "text": "ADaM"
+        },
+        {
+          "text": "CDASH"
+        }
+      ]
+    },
+    {
+      "text": "CDISC"
+    },
+    {
+      "text": "BRIDG"
+    }
+  ]
+}

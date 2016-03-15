@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>EDETEK</title>
+
+    <!-- ===== Angular ===== -->
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular/angular-animate.js"></script>
+    <script src="libs/angular/angular-ui-bootstrap-tools.js"></script>
+
+    <!-- ===== Jquery ===== -->
+    <link rel="stylesheet" href="libs/jquery/jquery.min.css"/>
+    <script src="libs/jquery/jquery.js"></script>
+
+    <!-- ===== Bootstrap ===== -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-table/src/bootstrap-table.css">
+    <!--<link rel="stylesheet" href="libs/bootstrap-table/dist/extensions/editable/bootstrap-editable.css">-->
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="libs/bootstrap-table/src/extensions/filter-control/bootstrap-table-filter-control.js"></script>-->
+
+    <!-- ===== Drag and Drop ===== -->
+
+    <script src="libs/bootstrap-dnd/fileinput.js"></script>
+    <script src="libs/bootstrap-dnd/canvas-to-blob.js"></script>
+    <link rel="stylesheet" href="libs/bootstrap-dnd/fileinput.min.css">
+
+    <!-- ===== D3 ===== -->
+    <script src="libs/d3/d3.js"></script>
+    <script src="js/d3tree.js"></script>
+
+    <!-- ===== jsTree ===== -->
+    <script src="libs/tree/jstree.js"></script>
+    <script src="js/jstree.directive.js"></script>
+
+    <!-- ===== Stylesheets ===== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/default/style.css">
+    <link rel="stylesheet" href="css/d3tree.css">
+
+    <!-- ===== <Scripts ===== -->
+    <script src="js/app.js"></script>
+    <!--<script src="js/parse.js"></script>-->
+    <!--<script src="js/dropzone.js"></script>-->
+
+</head>
+<body ng-controller="Main">
+<div class="container-fluid navi btn-info">
+    <div class="row navi-buttons">
+        <div class="col-md-2">
+            <div class="left">
+                <i>Selected Sponsor</i><br>
+                <b><i id="merck">Otsuka</i></b>
+                &nbsp;
+                <button class="btn btn-default">Change</button>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="left">
+                <i id="workspace">Selected Workspace</i> <br>
+                <div style="display: inline-flex; padding-left: 15px">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownWorkspaces"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Workspace 1
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownWorkspaces">
+                            <li><a href="#">Workspace 2</a></li>
+                            <li><a href="#">Workspace 3</a></li>
+                            <li><a href="#">Workspace 4</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-default"><span
+                            class="glyphicon glyphicon-save-file"></span> Save As
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="modal-title">
+                <h3 style="font-size: 20px;">EDETEK CONFORM Information Browser</h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="right pull-right">
+                <div ng-controller="Datepicker">
+                    <div class="row">
+                        <div class="col-md-6" style="float: right">
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt"
+                                       is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true"
+                                       close-text="Close" alt-input-formats="altInputFormats"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i
+                    class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="navi-buttons">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span
+                            class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="menu">
+                        <li><a href="#" id="myLink">MetaData Warehouse (Default)</a></li>
+                        <li><a href="#">Informational Processing Cloud</a></li>
+                        <li><a href="#">Events Management Systems</a></li>
+                        <li><a href="#">Clinical Information</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-home"
+                                                                    aria-hidden="true"></span> Home
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownFavorites"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favorites
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownFavorites">
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">Favorites</a></li>
+                    </ul>
+                </div>
+                <div class="input-group">
+                        <span class="input-group-btn" style="width:0;">
+            <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        </span>
+                    <input type="text" class="form-control" placeholder="Search Folder">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="center-buttons">
+                <p><i><b>My Events</b> 27 (Priority: 5)</i></p>
+                <p>&nbsp;</p>
+                <p><i><b> My Tasks</b> 11 (Due Today: 2)</i></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="navi-buttons pull-right">
+                <button class="btn btn-default"><span class="glyphicon glyphicon-log-in"
+                                                      aria-hidden="true"></span>
+                    Log-In
+                </button>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-log-out"
+                                                      aria-hidden="true"></span>
+                    Sign out
+                </button>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-wrench"
+                                                      aria-hidden="true"></span>
+                    Settings
+                </button>
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid wrapper">
+    <main>
+        <aside>
+            <div class="filtersBtns">
+                <div class="container">
+                    <div class="row" style="margin: 0 auto">
+                        <button type="button" class="btn btn-info" onclick="filterByH();">
+                            <i class="glyphicon glyphicon-filter"></i> by Hierarchy
+                        </button>
+                        <button type="button" class="btn btn-info" onclick="filterByO();">
+                            <i class="glyphicon glyphicon-filter"></i> by Object
+                        </button>
+                        <button class="btn btn-warning" ng-click="compare()">
+                            <i class=" glyphicon glyphicon-duplicate"></i> Compare</button>
+                    </div>
+                    <!--<div class="row" style=" margin: 0 auto">-->
+                        <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="Search">&ndash;&gt;-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="clinical">
+                <p align="center">Clinical Hierarchy Frame</p>
+                <js-tree tree-data="json" tree-src="data-tree/clinical.json"
+                         tree-plugins="contextmenu,dnd,types,wholerow,search"
+                         tree-events="changed:callback;"></js-tree>
+            </div>
+            <div class="study">
+                <p align="center">Study Frame</p>
+                <js-tree tree-data="json" tree-src="data-tree/study.json" tree-plugins="contextmenu,dnd,types,wholerow,search"
+                         tree-events="changed:callback;"></js-tree>
+            </div>
+            <div class="industry">
+                <p align="center">Industry Frame</p>
+                <js-tree tree-data="json" tree-src="data-tree/industry.json"
+                         tree-plugins="contextmenu,dnd,types,wholerow,search"
+                         tree-events="changed:callback;"></js-tree>
+            </div>
+        </aside>
+        <section ng-show="!dnd">
+            <div class="content">
+                <div class="row">
+                    <div class="parentGrid" style="overflow-x: hidden; overflow-y: hidden;">
+                        <div id="toolbar"></div>
+                        <table id="table"
+                               data-toolbar="#toolbar"
+                               data-search="true"
+                               data-show-refresh="false"
+                               data-show-toggle="true"
+                               data-show-columns="true"
+                               data-show-export="true"
+                               data-detail-view="true"
+                               data-detail-formatter="detailFormatter"
+                               data-minimum-count-columns="2"
+                               data-show-pagination-switch="false"
+                               data-pagination="false"
+                               data-id-field="id"
+                               data-page-list="[10, 25, 50, 100, ALL]"
+                               data-show-footer="false"
+                               data-response-handler="responseHandler"
+                               data-field="operate"
+                               data-events="operateEvents"
+                               data-formatter="operateFormatter"
+                               data-filter-control="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="childGrid">
+                        <div class="alert alert-info">
+                            <p style="font-size: 23px" align="center">Description</p>
+                            <div id="events"></div>
+                            <div id="tree-container">
+                                <!--<input type='file' onchange="readURL(this);"/>-->
+                                <input type="file" id="loadJson" onchange="readURL(this);"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section ng-show="dnd">
+            <div class="content">
+                <div class="row">
+                    <div class="childGrid" style="display: flex">
+                        <div style="width: 50%">
+                            <input type="file" id="left-input"/>
+                            <h3>Contents of the file:</h3>
+                            <pre>{{leftContent|json}}</pre>
+                        </div>
+                        <div style="width: 50%">
+                            <input type="file" id="right-input"/>
+                            <h3>Contents of the file:</h3>
+                            <pre>{{rightContent|json}}</pre>
+                        </div>
+                    </div>
+                    <div class="parentGrid">
+                        <button class="btn btn-info" ng-click="getResults()">
+                            <i class=" glyphicon glyphicon-duplicate"></i> Head it</button>
+                        <button class="btn btn-info" ng-click="saveAs()">
+                            <i class=" glyphicon glyphicon-save"></i> Save it</button>
+                        <div id="compare">
+                            <pre>{{ result|json }}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div class="modal fade" id="viewMemberModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal table</h4>
+            </div>
+            <div class="modal-body">
+                <!-- output data here-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="js/table.js"></script>
+</body>
+</html>

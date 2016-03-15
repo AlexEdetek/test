@@ -1,0 +1,183 @@
+body {
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    font-size: 12px; !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+aside {
+    float: left;
+    width: 20%;
+}
+
+aside > div:hover{
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+section {
+    float: right;
+    width: 80%;
+}
+
+/*section > div:hover{*/
+
+    /*-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);*/
+    /*-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);*/
+    /*box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);*/
+/*}*/
+.btn {
+    font-size: 12px; !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*HEADER*/
+.navi {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid lightgrey;
+    -webkit-box-shadow: 0px 5px 15px -5px rgba(102,114,122,1);
+    -moz-box-shadow: 0px 5px 15px -5px rgba(102,114,122,1);
+    box-shadow: 0px 5px 15px -5px rgba(102,114,122,1);
+}
+.navi-buttons {
+    display: flex;
+}
+
+/*TOP*/
+.right {
+    padding: 20px;
+}
+.left {
+    padding: 15px;
+    display: -webkit-box;
+}
+.left #workspace{
+    float: left;
+    padding-left: 15px;
+}
+.left #merck {
+    padding-left: 15px;
+}
+.modal-title {
+    padding-top: 10px;
+}
+
+/*BOTTOM*/
+.center-buttons {
+    display: -webkit-inline-box;
+}
+.center-buttons p{
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+/*======== BODY =============*/
+.filtersBtns {
+    display: flex;
+    background-color: rgba(234, 234, 234, 0.18);
+    margin:10px;
+    padding:10px;
+    overflow:auto;
+    border-radius: 5px;
+    /* own property*/
+    width: 93%;
+    border: 1px solid lightgray;
+    /*display: flex;*/
+}
+.form-control{
+    height: 2.2em;
+    width:100px;
+    border-radius:5px;
+    border:1px solid silver;
+}
+.parentGrid {
+    background-color: rgba(234, 234, 234, 0.18);
+    margin:10px;
+    padding:10px;
+    resize:vertical;
+    overflow:auto;
+    border-radius: 5px;
+    /* own property*/
+    width: 97%;
+    height: 250px;
+    min-height: 250px;
+    border: 1px solid lightgray;
+    white-space:normal;
+    font-size: 10px;
+}
+.childGrid {
+    background-color: rgba(234, 234, 234, 0.18);
+    margin:10px;
+    padding:10px;
+    resize:vertical;
+    overflow:auto;
+    border-radius: 5px;
+    /* own property*/
+    width: 97%;
+    height: 400px;
+    min-height: 300px;
+    border: 1px solid lightgray;
+}
+.industry {
+    background-color: rgba(234, 234, 234, 0.18);
+    margin:10px;
+    padding:10px;
+    resize:vertical;
+    overflow:auto;
+    border-radius: 5px;
+    /* own property*/
+    width: 93%;
+    min-height: 100px;
+    border: 1px solid lightgray;
+}
+.clinical {
+     background-color: rgba(234, 234, 234, 0.18);
+     margin:10px;
+     padding:10px;
+     resize:vertical;
+     overflow:auto;
+     border-radius: 5px;
+    /* own property*/
+    width: 93%;
+    min-height: 100px;
+    border: 1px solid lightgray;
+}
+.study {
+    background-color: rgba(234, 234, 234, 0.18);
+    margin:10px;
+    padding:10px;
+    resize:vertical;
+    overflow:auto;
+    border-radius: 5px;
+    /* own property*/
+    width: 93%;
+    min-height: 100px;
+    border: 1px solid lightgray;
+}
+
+/*============*/
+
+.dropzone {
+    width: 250px;
+    height: 45px;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+}
+
+.image-container {
+    width: 300px;
+    height: 100%;
+}
+
+.image-container img {
+    max-width: 100%;
+}
+
+#compare {
+    white-space: pre;
+}

@@ -1,0 +1,80 @@
+{
+  "text": "Astellas",
+  "icon": "icons/tree.png",
+  "children": [
+    {
+      "text": "Study_1",
+      "children": [
+        {
+          "text": "Data Marts",
+          "icon": "icons/data.png"
+        },
+        {
+          "text": "Programs",
+          "icon": "icons/programs.png"
+        },
+        {
+          "text": "Reports",
+          "icon": "icons/reports.png"
+        },
+        {
+          "text": "Files",
+          "icon": "icons/file.png"
+        },
+        {
+          "text": "Standards",
+          "icon": "icons/standards.png"
+        },
+        {
+          "text": "Events",
+          "icon": "icons/events.png"
+        },
+        {
+          "text": "Jobs",
+          "icon": "icons/jobs.png"
+        },
+        {
+          "text": "Workflows",
+          "icon": "icons/workflow.png"
+        }
+      ]
+    },
+    {
+      "text": "Study_2",
+      "children": [
+        {
+          "text": "Data Marts",
+          "icon": "icons/data.png"
+        },
+        {
+          "text": "Programs",
+          "icon": "icons/programs.png"
+        },
+        {
+          "text": "Reports",
+          "icon": "icons/reports.png"
+        },
+        {
+          "text": "Files",
+          "icon": "icons/file.png"
+        },
+        {
+          "text": "Standards",
+          "icon": "icons/standards.png"
+        },
+        {
+          "text": "Events",
+          "icon": "icons/events.png"
+        },
+        {
+          "text": "Jobs",
+          "icon": "icons/jobs.png"
+        },
+        {
+          "text": "Workflows",
+          "icon": "icons/workflow.png"
+        }
+      ]
+    }
+  ]
+}
